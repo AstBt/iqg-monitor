@@ -1,6 +1,9 @@
 
 # 爱抢购商品监控 Python脚本
 
+## 运行截图
+![image](https://github.com/AstBt/iqg-monitor/blob/main/img/shot.jpg)
+
 ## 主要功能
 - 对爱抢购app上的商品进行价格以及状态监控
 	- 输入商品id、期待价格expect-price、是否连接代理池isproxy
