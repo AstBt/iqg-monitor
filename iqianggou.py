@@ -62,6 +62,7 @@ def iqianggou(id,expect_price,times,isproxy):
                 print("\n\033[0;31;40m%s\033[0m\n"%(str(e)))
             continue
     print("\n\033[0;31;40m[x]商品售空，监控结束...\033[0m\n")
+    playsound("./end.mp3")
     return 0
 
 
