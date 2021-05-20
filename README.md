@@ -53,6 +53,8 @@ optional arguments:
 - 代理池不稳定，提示代理出错后会重连，**不需要重新执行程序**，如果多次报错，为不影响监控效果，请重新运行程序并不启用代理池
 - 商品当前价格未达到期待价格时，程序不会有太多输出（连接池重连除外），放在后台运行即可
 - 代码出现bug请提交issue，不定时查看并更新
+- 运行如果出现如下报错信息：`fake_useragent.errors.FakeUserAgentError: Maximum amount of retries reached` 请使用命令`python3 -m pip install -U fake-useragent
+` 更新`fake_useragent`库
 - 本代码仅供学习交流，须在法律允许范围内使用！
 
 ## 关于
