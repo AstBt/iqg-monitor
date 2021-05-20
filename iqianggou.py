@@ -12,7 +12,7 @@ def getip():
     proxy_ip = re.get("proxy")
     return proxy_ip
 
-def iqianggou(id,expect_price,isproxy):
+def iqianggou(id,expect_price,times,isproxy):
     url = "https://m.api.iqianggou.com/api/item/%d"%(id)
     # print("URL: ",url)
     re = requests.get(url)
@@ -52,7 +52,7 @@ def iqianggou(id,expect_price,isproxy):
                 else:
                     print("\033[0;31;40m[x]商品当前状态：%s\033[0m"%(item_statu))
             else:
-                time.sleep(5)
+                time.sleep(times)
         except Exception as e:
             if "SSLError" in str(e) or "ProxyError" in str(e):
                 print("\n\033[0;31;40m[x]代理出错，正在重试...\033[0m\n")
@@ -61,7 +61,7 @@ def iqianggou(id,expect_price,isproxy):
             else:
                 print("\n\033[0;31;40m%s\033[0m\n"%(str(e)))
             continue
-    print("\n\033[0;31;40m[x]监控结束...\033[0m\n")
+    print("\n\033[0;31;40m[x]商品售空，监控结束...\033[0m\n")
     return 0
 
 
@@ -70,7 +70,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('id', type=int, default=781395, help="商品id 获取方式：分享商品至QQ，url中id参数的值")
     parser.add_argument('-expect-price', type=int, default=1, help="期待商品价格 默认为1")
+    parser.add_argument('-times',type=int,default=10,help="监控时间间隔 默认为5秒/次")
     parser.add_argument('-isproxy', type=int, default=0, help="是否连接代理池 默认为0")
     args = parser.parse_args()
-    iqianggou(args.id,args.expect_price,args.isproxy)
+    iqianggou(args.id,args.expect_price,args.times,args.isproxy)
 
